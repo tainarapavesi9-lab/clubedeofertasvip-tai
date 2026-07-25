@@ -63,13 +63,18 @@
 
   .marca { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
   .avatar {
-    width: 84px; height: 84px;
+    width: 96px; height: 96px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--rosa), var(--framboesa));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 38px;
     border: 3px solid var(--card);
     box-shadow: 0 4px 18px rgba(194, 24, 91, 0.25);
+    overflow: hidden;
+  }
+  .avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: 50% 22%;
+    display: block;
   }
   .marca .nome { font-weight: 800; font-size: 17px; }
 
@@ -139,9 +144,14 @@
     width: 38px; height: 38px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--rosa), var(--framboesa));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
     flex-shrink: 0;
+    overflow: hidden;
+  }
+  .zap-header .foto img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: 50% 22%;
+    display: block;
   }
   .zap-header .info { line-height: 1.3; min-width: 0; }
   .zap-header .titulo { font-weight: 700; font-size: 14.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -298,7 +308,9 @@
   <div class="urgencia entrada">🔥 Últimas vagas no grupo</div>
 
   <div class="marca entrada d1">
-    <div class="avatar" aria-hidden="true">💖</div>
+    <div class="avatar">
+      <img src="avatar.jpg" alt="Tai, do Clube da Tai, com seus achadinhos">
+    </div>
     <span class="nome">Clube da Tai — Ofertas VIP</span>
   </div>
 
@@ -337,7 +349,7 @@
 
   <div class="celular entrada d3" aria-label="Prévia de como as mensagens chegam no grupo do WhatsApp">
     <div class="zap-header">
-      <div class="foto" aria-hidden="true">💖</div>
+      <div class="foto"><img src="avatar.jpg" alt=""></div>
       <div class="info">
         <div class="titulo">Clube da Tai — Ofertas VIP ✨</div>
         <div class="status" id="zapStatus">1.024 participantes</div>
