@@ -321,12 +321,25 @@
     <small>Toque para entrar no grupo VIP — é grátis</small>
   </a>
 
-  <div class="carrossel entrada d3" aria-label="Compromisso do Clube">
+  <div class="carrossel entrada d3" aria-label="Compromissos do Clube">
     <div class="estrelas" aria-hidden="true">★★★★★</div>
     <div class="slide ativo">
-      <blockquote>"Meu compromisso: só posto oferta que eu colocaria no meu próprio carrinho — produto bem avaliado, de loja confiável e com desconto de verdade. Nada de spam."</blockquote>
+      <blockquote>"Só posto oferta que eu colocaria no meu próprio carrinho — produto bem avaliado, de loja confiável e com desconto de verdade."</blockquote>
       <cite>— Tai, fundadora do Clube 💖</cite>
     </div>
+    <div class="slide">
+      <blockquote>"Nada de encher seu WhatsApp: poucas mensagens por dia, e toda oferta passa pela minha curadoria antes de chegar em você."</blockquote>
+      <cite>— Compromisso do Clube ✨</cite>
+    </div>
+    <div class="slide">
+      <blockquote>"Priorizo produto com nota alta e milhares de vendas — se não é bom pra mim, não entra no grupo. Simples assim."</blockquote>
+      <cite>— Tai, fundadora do Clube 💖</cite>
+    </div>
+    <div class="slide">
+      <blockquote>"Entrada gratuita, sem pegadinha: você entra, aproveita as ofertas e sai quando quiser. O grupo existe pra você economizar."</blockquote>
+      <cite>— Compromisso do Clube ✨</cite>
+    </div>
+    <div class="pontos" id="pontos"></div>
   </div>
 
   <h2 class="secao-titulo entrada d3">Espia como as ofertas chegam 👇</h2>
@@ -427,6 +440,25 @@
       setTimeout(function () { mostrarBolha(0); }, 1200);
     }
 
+    var slides = document.querySelectorAll('.slide');
+    var pontosEl = document.getElementById('pontos');
+    var atual = 0;
+    slides.forEach(function (_, i) {
+      var p = document.createElement('button');
+      p.className = 'ponto' + (i === 0 ? ' ativo' : '');
+      p.setAttribute('aria-label', 'Slide ' + (i + 1));
+      p.addEventListener('click', function () { irPara(i); });
+      pontosEl.appendChild(p);
+    });
+    var pontos = pontosEl.querySelectorAll('.ponto');
+    function irPara(i) {
+      slides[atual].classList.remove('ativo');
+      pontos[atual].classList.remove('ativo');
+      atual = i;
+      slides[atual].classList.add('ativo');
+      pontos[atual].classList.add('ativo');
+    }
+    setInterval(function () { irPara((atual + 1) % slides.length); }, 5500);
   })();
 </script>
 </body>
