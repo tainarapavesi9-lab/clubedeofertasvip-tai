@@ -303,7 +303,7 @@
 <body>
 <main class="pagina">
 
-  <div class="urgencia entrada">🔥 Últimas vagas no grupo</div>
+  <div class="urgencia entrada">💖 Grupo novo — entrada gratuita</div>
 
   <div class="marca entrada d1">
     <div class="avatar">
@@ -321,25 +321,12 @@
     <small>Toque para entrar no grupo VIP — é grátis</small>
   </a>
 
-  <div class="carrossel entrada d3" aria-label="Depoimentos de participantes">
+  <div class="carrossel entrada d3" aria-label="Compromisso do Clube">
     <div class="estrelas" aria-hidden="true">★★★★★</div>
     <div class="slide ativo">
-      <blockquote>"Já economizei mais de R$ 300 no primeiro mês só comprando pelos links da Tai. As ofertas chegam antes de aparecerem em qualquer lugar!"</blockquote>
-      <cite>— Juliana, São Paulo</cite>
+      <blockquote>"Meu compromisso: só posto oferta que eu colocaria no meu próprio carrinho — produto bem avaliado, de loja confiável e com desconto de verdade. Nada de spam."</blockquote>
+      <cite>— Tai, fundadora do Clube 💖</cite>
     </div>
-    <div class="slide">
-      <blockquote>"Comprei o jogo de potes que eu namorava há MESES por metade do preço. A Tai avisa antes de viralizar, isso que é o segredo."</blockquote>
-      <cite>— Camila, Fortaleza</cite>
-    </div>
-    <div class="slide">
-      <blockquote>"O que eu mais gosto: o grupo é limpo. Chega pouca mensagem e TODA vale a pena abrir. Melhor grupo de promoção que já entrei."</blockquote>
-      <cite>— Renata, Curitiba</cite>
-    </div>
-    <div class="slide">
-      <blockquote>"Minha air fryer chegou ontem, paguei 40% menos que na loja do shopping. Já tô de olho na próxima oferta 😍"</blockquote>
-      <cite>— Vanessa, Belo Horizonte</cite>
-    </div>
-    <div class="pontos" id="pontos"></div>
   </div>
 
   <h2 class="secao-titulo entrada d3">Espia como as ofertas chegam 👇</h2>
@@ -406,11 +393,6 @@
     </div>
   </div>
 
-  <div class="vagas">
-    <div class="numero" id="contadorVagas">18</div>
-    <div class="rotulo">vagas restantes hoje</div>
-  </div>
-
   <a class="cta" href="https://chat.whatsapp.com/HDufdEaYzeADOQDg6RtahJ" style="animation: none;">
     GARANTIR MINHA VAGA AGORA
     <small>Entrada gratuita • Sai quando quiser</small>
@@ -423,8 +405,6 @@
   </footer>
 
 </main>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
   (function () {
@@ -447,52 +427,6 @@
       setTimeout(function () { mostrarBolha(0); }, 1200);
     }
 
-    var slides = document.querySelectorAll('.slide');
-    var pontosEl = document.getElementById('pontos');
-    var atual = 0;
-    slides.forEach(function (_, i) {
-      var p = document.createElement('button');
-      p.className = 'ponto' + (i === 0 ? ' ativo' : '');
-      p.setAttribute('aria-label', 'Depoimento ' + (i + 1));
-      p.addEventListener('click', function () { irPara(i); });
-      pontosEl.appendChild(p);
-    });
-    var pontos = pontosEl.querySelectorAll('.ponto');
-    function irPara(i) {
-      slides[atual].classList.remove('ativo');
-      pontos[atual].classList.remove('ativo');
-      atual = i;
-      slides[atual].classList.add('ativo');
-      pontos[atual].classList.add('ativo');
-    }
-    setInterval(function () { irPara((atual + 1) % slides.length); }, 5500);
-
-    var contador = document.getElementById('contadorVagas');
-    var vagas = 14 + Math.floor(Math.random() * 8);
-    contador.textContent = vagas;
-    setInterval(function () {
-      if (vagas > 3 && Math.random() < 0.6) {
-        vagas--;
-        contador.textContent = vagas;
-      }
-    }, 35000);
-
-    var nomes = [
-      'Camila de Fortaleza', 'Bruna de Salvador', 'Larissa de Curitiba',
-      'Amanda do Rio', 'Patrícia de Recife', 'Fernanda de Goiânia',
-      'Aline de Manaus', 'Vanessa de Porto Alegre', 'Débora de Campinas',
-      'Tatiane de Belém'
-    ];
-    var toast = document.getElementById('toast');
-    var indice = Math.floor(Math.random() * nomes.length);
-    function mostrarToast() {
-      toast.textContent = '💖 ' + nomes[indice % nomes.length] + ' entrou no Clube!';
-      indice++;
-      toast.classList.add('visivel');
-      setTimeout(function () { toast.classList.remove('visivel'); }, 4200);
-    }
-    setTimeout(mostrarToast, 6000);
-    setInterval(mostrarToast, 17000);
   })();
 </script>
 </body>
