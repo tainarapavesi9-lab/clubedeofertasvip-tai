@@ -123,6 +123,43 @@
     50% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6); }
   }
 
+  /* ===== Turmas (escassez honesta: #1 aberto, #2 so quando lotar) ===== */
+  .turmas { display: flex; flex-direction: column; gap: 10px; }
+  .turma {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .turma.aberta { border-color: var(--framboesa); box-shadow: 0 3px 14px rgba(168, 98, 31, 0.14); }
+  .turma.fechada { opacity: 0.62; }
+  .turma strong { display: block; font-size: 14.5px; }
+  .turma .turma-sub { font-size: 12.5px; color: var(--texto-suave); }
+  .selo-aberto {
+    background: var(--whats);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 5px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .selo-breve {
+    background: var(--rosa-suave);
+    color: var(--framboesa);
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 5px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
   .secao-titulo { text-align: center; font-size: 20px; font-weight: 800; margin-top: 6px; }
   .secao-sub { text-align: center; font-size: 13.5px; color: var(--texto-suave); margin-top: -16px; }
 
@@ -306,7 +343,7 @@
 <body>
 <main class="pagina">
 
-  <div class="urgencia entrada">🤎 Grupo novo — entrada gratuita</div>
+  <div class="urgencia entrada">✨ Turma fundadora — vagas abertas</div>
 
   <div class="marca entrada d1">
     <div class="avatar">
@@ -323,6 +360,23 @@
     QUERO ENTRAR NO CLUBE 🤎
     <small>Toque para entrar no grupo VIP — é grátis</small>
   </a>
+
+  <div class="turmas entrada d2">
+    <div class="turma aberta">
+      <div>
+        <strong>🥇 Grupo VIP #1 — Turma Fundadora</strong>
+        <span class="turma-sub">Quem entra agora recebe TODAS as ofertas desde o 1º dia</span>
+      </div>
+      <span class="selo-aberto">VAGAS ABERTAS</span>
+    </div>
+    <div class="turma fechada">
+      <div>
+        <strong>Grupo VIP #2</strong>
+        <span class="turma-sub">Abre somente quando o #1 lotar</span>
+      </div>
+      <span class="selo-breve">EM BREVE</span>
+    </div>
+  </div>
 
   <div class="carrossel entrada d3" aria-label="Compromissos do Clube">
     <div class="estrelas" aria-hidden="true">★★★★★</div>
@@ -360,11 +414,13 @@
       <div class="bolha" data-passo="1">
         <div class="autor">Tai 🤎</div>
         🚨 BAIXOU DE PREÇO! 🚨<br><br>
-        💪 <b>Creatina Monohidratada Pura 1kg</b><br><br>
-        ⭐ Nota 4.9 — mais de 500 mil vendidos!<br><br>
-        ❌ De: <s>R$ 159,90</s><br>
-        ✅ Por: <b>R$ 69,90</b> 💥 56% OFF<br><br>
-        🛒 <span class="link-falso">meli.la/oferta</span>
+        💄 <b>Sérum Coreano Centella Skin1004 100ml</b><br>
+        <i>O queridinho da rotina de skincare</i><br><br>
+        ✅ Produto ORIGINAL — loja oficial<br>
+        ⭐ Nota 4.9 — mais de 100 mil vendidos!<br><br>
+        ❌ De: <s>R$ 119,90</s><br>
+        ✅ Por: <b>R$ 64,90</b> 💥 46% OFF<br><br>
+        🛒 <span class="link-falso">s.shopee.com.br/oferta</span>
         <span class="hora">09:12</span>
         <span class="reacao">😍 32</span>
       </div>
