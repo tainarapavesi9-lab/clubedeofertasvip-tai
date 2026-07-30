@@ -122,6 +122,16 @@
     0%, 100% { box-shadow: 0 6px 22px rgba(37, 211, 102, 0.35); }
     50% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6); }
   }
+  /* O botao do topo tem as classes "cta" (pulsar) + "entrada" (fade-in) juntas —
+     as duas setavam a propriedade "animation" sozinhas e uma apagava a outra
+     (o pulsar vencia e o fade-in nunca rodava, deixando o botao em opacity:0
+     pra sempre — bug reportado pelo usuario em 30/07/2026, print mostrando o
+     botao sumido). Aqui as duas ficam explicitamente combinadas numa unica
+     declaracao, entao nenhuma sobrescreve a outra.
+  */
+  .cta.entrada {
+    animation: surgir 0.6s ease 0.15s forwards, pulsar 2.4s ease-in-out 0.75s infinite;
+  }
 
   .secao-titulo { text-align: center; font-size: 20px; font-weight: 800; margin-top: 6px; }
   .secao-sub { text-align: center; font-size: 13.5px; color: var(--texto-suave); margin-top: -16px; }
