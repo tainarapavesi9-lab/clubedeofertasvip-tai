@@ -237,6 +237,39 @@
   .beneficio h3 { font-size: 15.5px; font-weight: 800; margin-bottom: 2px; }
   .beneficio p { font-size: 14px; color: var(--texto-suave); }
 
+  /* ===== Carrossel de depoimentos ===== */
+  .carrossel {
+    background: var(--rosa-suave);
+    border-radius: 16px;
+    padding: 22px 20px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .estrelas { color: var(--dourado); font-size: 15px; letter-spacing: 2px; margin-bottom: 8px; }
+  .slide { display: none; }
+  .slide.ativo { display: block; animation: surgir 0.5s ease; }
+  .slide blockquote { font-size: 15px; font-style: italic; min-height: 88px; }
+  .slide cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--framboesa);
+  }
+  .pontos { display: flex; justify-content: center; gap: 7px; margin-top: 14px; }
+  .ponto {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(168, 98, 31, 0.25);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .ponto.ativo { background: var(--framboesa); transform: scale(1.25); }
+
   .vagas {
     background: var(--card);
     border: 1px solid var(--borda);
@@ -351,6 +384,27 @@
     </a>
   </div>
 
+  <div class="carrossel entrada d3" aria-label="Depoimentos de membros do Clube">
+    <div class="estrelas" aria-hidden="true">★★★★★</div>
+    <div class="slide ativo">
+      <blockquote>"Eu já comprava bastante na Shopee, mas depois que entrei no grupo comecei a economizar muito mais. A Tai já manda o produto com o preço e o link, então é só clicar e aproveitar quando realmente vale a pena."</blockquote>
+      <cite>— Membro do Clube da Tai 🤎</cite>
+    </div>
+    <div class="slide">
+      <blockquote>"O melhor é que eu descubro umas coisas que nunca procuraria sozinha 😂 Já comprei várias coisas pro apartamento que vi no grupo e estavam muito mais baratas."</blockquote>
+      <cite>— Membro do Clube da Tai 🤎</cite>
+    </div>
+    <div class="slide">
+      <blockquote>"Eu não tenho paciência pra ficar procurando promoção na Shopee. Entrei no grupo justamente por isso. Quando aparece alguma coisa boa, eu já recebo no WhatsApp e decido se quero comprar."</blockquote>
+      <cite>— Membro do Clube da Tai 🤎</cite>
+    </div>
+    <div class="slide">
+      <blockquote>"Já peguei algumas ofertas pelo grupo que depois fui procurar e o preço tinha subido de novo. Então realmente ajuda estar no grupo e receber quando aparece."</blockquote>
+      <cite>— Membro do Clube da Tai 🤎</cite>
+    </div>
+    <div class="pontos" id="pontos"></div>
+  </div>
+
   <h2 class="secao-titulo entrada d3">Espia como as ofertas chegam 👇</h2>
   <p class="secao-sub entrada d3">Prévia real do grupo:</p>
 
@@ -450,6 +504,26 @@
       }
       setTimeout(function () { mostrarBolha(0); }, 1200);
     }
+
+    var slides = document.querySelectorAll('.slide');
+    var pontosEl = document.getElementById('pontos');
+    var atual = 0;
+    slides.forEach(function (_, i) {
+      var p = document.createElement('button');
+      p.className = 'ponto' + (i === 0 ? ' ativo' : '');
+      p.setAttribute('aria-label', 'Slide ' + (i + 1));
+      p.addEventListener('click', function () { irPara(i); });
+      pontosEl.appendChild(p);
+    });
+    var pontos = pontosEl.querySelectorAll('.ponto');
+    function irPara(i) {
+      slides[atual].classList.remove('ativo');
+      pontos[atual].classList.remove('ativo');
+      atual = i;
+      slides[atual].classList.add('ativo');
+      pontos[atual].classList.add('ativo');
+    }
+    setInterval(function () { irPara((atual + 1) % slides.length); }, 5500);
   })();
 </script>
 </body>
