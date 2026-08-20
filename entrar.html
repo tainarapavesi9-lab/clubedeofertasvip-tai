@@ -17,7 +17,7 @@
   <div class="card">
     <h1>Voce ja concorre!</h1>
     <p>Clica no botao abaixo pra entrar no Grupo VIP e receber os achadinhos.</p>
-    <a class="cta" onclick="fbq('track', 'Lead')" href="https://chat.whatsapp.com/ESRLZ9BMmSS8yVExsS6lpY">Entrar no Grupo</a>
+    <a class="cta" onclick="event.preventDefault(); fbq('track', 'Lead'); setTimeout(function(){window.location.href='https://chat.whatsapp.com/ESRLZ9BMmSS8yVExsS6lpY';}, 300);" href="https://chat.whatsapp.com/ESRLZ9BMmSS8yVExsS6lpY">Entrar no Grupo</a>
   </div>
 </body>
 </html>
